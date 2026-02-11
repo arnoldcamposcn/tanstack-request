@@ -1,73 +1,71 @@
-# React + TypeScript + Vite
+# Car Management App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplicación CRUD completa para gestión de autos, construida con React, TypeScript y las mejores prácticas modernas de desarrollo frontend.
 
-Currently, two official plugins are available:
+## Stack Tecnológico
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Core
+- **React 19** - Biblioteca de UI
+- **TypeScript** - Tipado estático
+- **Vite** - Build tool y dev server
 
-## React Compiler
+### Gestión de Estado y Peticiones HTTP
+- **TanStack Query (React Query)** - Gestión de estado del servidor, cache y sincronización
+- **Axios** - Cliente HTTP para peticiones a la API
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Routing
+- **React Router DOM v7** - Enrutamiento de la aplicación
 
-## Expanding the ESLint configuration
+### Formularios y Validación
+- **React Hook Form** - Gestión de formularios performante
+- **Zod** - Validación de esquemas con TypeScript
+- **@hookform/resolvers** - Integración de Zod con React Hook Form
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Estilos
+- **Tailwind CSS v4** - Framework de utilidades CSS
+- **@tailwindcss/vite** - Integración de Tailwind con Vite
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### Notificaciones
+- **React Toastify** - Notificaciones toast (instalado, listo para usar)
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## 📁 Estructura del Proyecto
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+src/
+├── api/ # Capa de API
+│ ├── client/ # Configuración de Axios
+│ ├── endpoints/ # Definición de endpoints
+│ └── services/ # Servicios de negocio
+├── components/ # Componentes React
+│ ├── atoms/ # Componentes básicos (Input, etc.)
+│ ├── organisms/ # Componentes complejos (CarForm, CarTable)
+│ └── forms/ # Formularios
+├── hooks/ # Custom hooks
+│ ├── useCarsQuery.ts # Hook para queries de autos
+│ └── useMutations.ts # Hook para mutations (create, update, delete)
+├── models/ # Modelos de datos
+│ └── car/
+│ ├── model/ # Schemas Zod
+│ └── types/ # Tipos TypeScript
+├── pages/ # Páginas de la aplicación
+├── routes/ # Configuración de rutas
+└── main.tsx # Punto de entrada
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## 🚧 Próximas Mejoras
+
+- [ ] Implementar funcionalidad de eliminar
+- [ ] Agregar confirmación antes de eliminar
+- [ ] Implementar búsqueda y filtros
+- [ ] Agregar paginación
+- [ ] Implementar notificaciones toast
+- [ ] Agregar tests unitarios
+
+
+## 📄 Licencia
+
+Este proyecto es Publico.
+
+---
+
+Desarrollado con ❤️ usando React, TypeScript y TanStack Query
