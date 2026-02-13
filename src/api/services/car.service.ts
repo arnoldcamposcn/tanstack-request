@@ -5,8 +5,9 @@ import { API_ENDPOINTS } from "../endpoints/car.endpoints";
 
 export const carService = {
 
-    getAllCars: async (): Promise<Car[]> => {
-        const { data } = await api.get<Car[]>(API_ENDPOINTS.CAR.GET_ALL);
+    getAllCars: async (query?: string): Promise<Car[]> => {
+        const params = query ? { q: query } : {};
+        const { data } = await api.get<Car[]>(API_ENDPOINTS.CAR.GET_ALL, { params });
         return data;
     },
 
